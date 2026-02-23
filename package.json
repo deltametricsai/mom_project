@@ -15,6 +15,7 @@
   "build": {
     "appId": "com.spiromedical.pogenerator",
     "productName": "Spiro Medical PO Generator",
+    "publish": null,
     "directories": { "output": "dist" },
     "mac": {
       "category": "public.app-category.business",

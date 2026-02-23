@@ -1,6 +1,5 @@
-# Build Spiro Medical PO Generator for Mac and Windows.
-# Push to GitHub, then open Actions → "Build PO App" → Run workflow.
-# Download the Windows .exe and Mac .dmg from the workflow artifacts.
+# Build Spiro Medical PO Generator for Windows (.exe only). Mac build locally if needed.
+# Push to GitHub → Actions → "Build PO App" → download windows-build artifact for the .exe.
 
 name: Build PO App
 
@@ -10,22 +9,6 @@ on:
     branches: [main, master]
 
 jobs:
-  build-mac:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - run: npm install
-      - run: npm run dist:mac
-      - uses: actions/upload-artifact@v4
-        with:
-          name: mac-build
-          path: |
-            dist/*.dmg
-            dist/*.zip
-
   build-windows:
     runs-on: windows-latest
     steps:
