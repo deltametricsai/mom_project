@@ -59,8 +59,7 @@ async function exportToSpreadsheet(data, filePath) {
     sheet[cellRef] = { t: typeof val === 'number' ? 'n' : 's', v: val };
   });
   sheet['!ref'] = XLSX.utils.encode_range({
-    r: 0,
-    c: 0,
+    s: { r: 0, c: 0 },
     e: { r: newRow, c: HEADERS.length - 1 },
   });
   XLSX.writeFile(wb, filePath);

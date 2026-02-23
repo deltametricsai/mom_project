@@ -35,8 +35,11 @@ function getFormData() {
   };
 }
 
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
+btnGenerate.addEventListener('click', async () => {
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    return;
+  }
   hideMessage();
   const data = getFormData();
 
