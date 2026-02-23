@@ -1,0 +1,35 @@
+{
+  "name": "spiro-medical-po-generator",
+  "version": "1.0.0",
+  "description": "Spiro Medical Purchase Order generator - desktop app for creating POs and exporting to spreadsheet",
+  "main": "main.js",
+  "author": "Spiro Medical",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "dist:mac": "electron-builder --mac",
+    "dist:win": "electron-builder --win"
+  },
+  "build": {
+    "appId": "com.spiromedical.pogenerator",
+    "productName": "Spiro Medical PO Generator",
+    "directories": { "output": "dist" },
+    "mac": {
+      "category": "public.app-category.business",
+      "target": ["dmg", "zip"]
+    },
+    "win": {
+      "target": ["nsis", "portable"]
+    }
+  },
+  "dependencies": {
+    "pdf-lib": "^1.17.1",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1"
+  }
+}
